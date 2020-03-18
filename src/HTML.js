@@ -518,7 +518,8 @@ export default class HTML extends PureComponent {
       tagsStyles,
       textSelectable,
       textBreakStrategy,
-      numberOfLines
+      numberOfLines,
+      firstParagraphStyle
     } = props;
 
     return RNElements && RNElements.length
@@ -610,7 +611,8 @@ export default class HTML extends PureComponent {
               : undefined,
             tagsStyles ? tagsStyles[tagName] : undefined,
             classStyles,
-            convertedCSSStyles
+            convertedCSSStyles,
+            index === 0 && Wrapper === Text && firstParagraphStyle
           ].filter(s => s !== undefined);
 
           const renderersProps = {};
