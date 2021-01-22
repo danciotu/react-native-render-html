@@ -570,7 +570,8 @@ export default class HTML extends PureComponent {
               return undefined;
             }
             // If a custom renderer is available for this tag
-            return customRenderer(attribs, childElements, convertedCSSStyles, {
+            const customStyle = [convertedCSSStyles, index === 0 && Wrapper === Text && firstParagraphStyle];
+            return customRenderer(attribs, childElements, customStyle, {
               ...props,
               parentWrapper: wrapper,
               parentTag,
